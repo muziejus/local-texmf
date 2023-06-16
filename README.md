@@ -31,35 +31,40 @@ of modular LaTeX files inside the Pandoc data tree
 The way I do this is by rigidly enforcing and checking for set variables 
 in the LaTeX files. That way, a vanilla LaTeX file might begin:
 
-So, for example, a Pandoc template might begin:
-
 ```tex
 \documentclass[letter,12pt,article,oneside]{memoir}
 
 \newcommand{\mytitle}{My Awesome Title}
 \newcommand{\myauthorname}{Moacir P. de Sá Pereira}
-\newcommand{\myinputstemplate}{math-homework}
 
-\input{\myinputstemplate}
+\input{math-homework}
 ```
 
 The `math-homework` file is anticipating variables/commands 
 called `\mytitle` and `\myauthorname`, so it can feed them into its own
 headers, footers, and so on. 
-In Pandoc, I have an interstitial template that converts Pandoc metadata
+In Pandoc, I have an [interstitial template](https://github.com/muziejus/dot-pandoc/blob/main/templates/default.latex) that converts Pandoc metadata
 into LaTeX commands/variables, like this:
 
 ```tex
 \documentclass[letter,12pt,article,oneside]{memoir}
 
-\newcommand{\mytitle}{$title$}
-\newcommand{\myauthorname}{$author.name$}
-\newcommand{\myinputstemplate}{$inputs-template$}
+$if(title)$
+  \newcommand{\mytitle}{$title$}
+$else$
+  \newcommand{\mytitle}{TITLE}
+$endif$
 
-\input{\myinputstemplate}
+% ...
+
+$if(inputsTemplate)$
+  \input{$inputsTemplate$}
+$else$
+  \input{default-document}
+$endif$
 ```
 
-Here, `$title$`, `$author.name$`, and `$inputs-template$` refer 
+Here, `$title$` and `$inputsTemplate$` refer 
 to these metadata variables. 
 See [Pandoc’s documentation on interpolated variables](https://pandoc.org/MANUAL.html#interpolated-variables) for more.
 
