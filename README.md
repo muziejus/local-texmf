@@ -1,6 +1,23 @@
 # Local texmf
 
-This is my local texmf. On Macs, it’s installed in `~/Library/texmf`.
+Sometimes with LaTeX you want things installed globally, 
+so you can always refer to them no matter where your writing project is.
+That’s one of the use cases solved by using a local texmf tree;
+anything in there is visible everywhere, 
+and it’s where you would install niche packages.
+
+It’s also a good place to stash boilerplate, like page margins,
+a “default” set of packages, and so on.
+Instead of having a long preamble that I have to copy from document to document,
+like every week I have to submit a new homework assignment, 
+I instead leverage texmf and create a “math-homework” LaTeX file that I 
+`\input`. It, subsequently, refers to other documents in my local texmf to build
+out the structure I want. 
+On a per-document basis, I get a preamble less than 15 lines long, 
+and whenever I want to update the look of my math homework,
+I can do so for every math homework I have ever drafted.
+
+So, then, this is my local texmf. On Macs, it’s installed in `~/Library/texmf`.
 
 All the files here will be visible to LaTeX and friends,
 regardless of whether LaTeX is invoked by Pandoc or by itself.
@@ -34,14 +51,17 @@ However, in vanilla LaTeX, we might have:
 
 \newcommand{\mytitle}{My Awesome Title}
 \newcommand{\myauthorname}{Moacir P. de Sá Pereira}
-\newcommand{\myinputstemplate}{math-lecture-notes}
+\newcommand{\myinputstemplate}{math-homework}
 
 \input{\myinputstemplate}
 ```
 
 The title and author’s name need to be filled in.
 
-But in both cases, there are now available `\mytitle`,  `\myauthorname`, and `\myinputstemplate` which can be accessed by the various subsequent files that are `\input`ed via the value of `\myinputstemplate`.
+But in both cases, there are now available `\mytitle`,  
+`\myauthorname`, 
+and `\myinputstemplate` which can be accessed by the 
+various subsequent files that are `\input`ed via the value of `\myinputstemplate`.
 
 ## Bibliographies
 
