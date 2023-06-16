@@ -1,0 +1,17 @@
+\ifundef{\myfont}{
+  \newcommand{\myfont}{Latin Modern Roman}
+}
+
+\ifundef{\mymonofont}{
+  \newcommand{\mymonofont}{Ubuntu Mono}
+}
+
+\usepackage{fontspec}
+  \IfFontExistsTF{\myfont}{%
+    \setmainfont{\myfont}[%
+      Mapping=tex-text ,
+    ]
+  }{}
+  \IfFontExistsTF{\mymonofont}{%
+    \setmonofont[Scale=0.8]{\mymonofont}
+  }{}

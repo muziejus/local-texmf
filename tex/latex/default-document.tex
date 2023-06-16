@@ -1,0 +1,25 @@
+\ifundef{\mytitle}{
+  \newcommand{\mytitle}{A Document}
+}{}
+\ifundef{\myauthorname}{
+  \newcommand{\myauthorname}{Moacir P. de Sá Pereira}
+}{}
+
+% Package sets
+\input{package-sets/default}
+
+% Font
+\input{fonts/default}
+
+% Layout
+\input{layouts/default}
+
+% PDF
+\ifundef{\mypdftitle}{
+  \newcommand{\mypdftitle}{\mytitle}
+}{}
+\ifundef{\mypdfauthor}{
+    \newcommand{\mypdfauthor}{\myauthorname}
+}{}
+\input{outputs/pdf}
+

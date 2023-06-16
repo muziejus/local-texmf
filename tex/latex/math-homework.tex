@@ -41,18 +41,16 @@
     \mytitle for \mycoursename
   }
 }{}
-
 \ifundef{\mypdfauthor}{
     \newcommand{\mypdfauthor}{\myauthorname}
 }{}
-
 \input{outputs/pdf}
 
 % Header and Footer
 \setlength{\headheight}{14.5pt}
 \copypagestyle{math-homework}{plain}
 \makeoddfoot{math-homework}{}{}{%
-  \myauthorname\ - \mytitle\ (due: \myduedate)- p. \thepage
+  \myauthorname\ - \mytitle\ (due: \myduedate) - p. \thepage
 }
 
 \pagestyle{math-homework}
