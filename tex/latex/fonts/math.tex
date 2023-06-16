@@ -1,0 +1,13 @@
+\ifundef{\myfont}{
+  \newcommand{\myfont}{Latin Modern Roman}
+}
+
+\usepackage{mathspec}
+  \IfFontExistsTF{\myfont}{%
+    \setmainfont{\myfont}[%
+      Mapping=tex-text ,
+    ]
+    \setmathrm{\myfont}
+    \setmathfont(Digits,Latin){\myfont}
+  }{}
+

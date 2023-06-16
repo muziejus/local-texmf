@@ -1,0 +1,22 @@
+% This input anticipates the following variables’ being set:
+
+% \mytitle
+% \myauthorname
+% \myauthorid
+% \myfont
+
+\ifundef{\mytitle}{
+  \newcommand{\mytitle}{Homework}
+}
+\ifundef{\myauthorname}{
+  \newcommand{\myauthorname}{Moacir P. de Sá Pereira}
+}
+\ifundef{\myauthorid}{
+  \newcommand{\myauthorid}{mpd2149}
+}
+
+% Package sets
+\input{package-sets/math}
+
+% Fonts
+\input{fonts/math}
