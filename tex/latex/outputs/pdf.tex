@@ -1,0 +1,24 @@
+\ifundef{\mypdftitle}{
+  \newcommand{\mypdftitle}{
+    Generic PDF Title in lieu of mypdftitle
+  }
+}{}
+
+\ifundef{\mypdfauthor}{
+  \newcommand{\mypdfauthor}{
+    Generic Author in lieu of mypdfauthor
+  }
+}{}
+
+\usepackage[
+  breaklinks=true,
+  hidelinks,
+  unicode=true,
+	plainpages=false,
+	pdfpagelabels,
+  pdftitle=\mypdftitle
+	% pagebackref,
+	pdfauthor=\mypdfauthor,
+	% pdfkeywords={\keywords}
+	]{hyperref}
+
