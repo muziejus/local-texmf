@@ -1,1 +1,4 @@
 *.bib
+*.log
+*.out
+*.aux
