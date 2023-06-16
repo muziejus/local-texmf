@@ -19,32 +19,19 @@ I can do so for every math homework I have ever drafted.
 
 So, then, this is my local texmf. On Macs, it’s installed in `~/Library/texmf`.
 
-All the files here will be visible to LaTeX and friends,
-regardless of whether LaTeX is invoked by Pandoc or by itself.
-This is an improvement on my old system of stashing LaTeX files 
-in Pandoc’s folder.
+To my Overleaf friends, gl implementing something like this.
 
-The way this works for LaTeX files is that all of my little settings
-are broken up into various files that LaTeX/Pandoc `\input`s. 
-Pandoc reads in variables from the metadata, 
-which are converted into LaTeX in the base document, 
-and which are subsequently fed to these files. 
+## Pandoc
+
+The goal is to have these files legible both by vanilla LaTeX 
+files and Pandoc files, which is an improvement on constructing a tree
+of modular LaTeX files inside the Pandoc data tree 
+(`~/.pandoc`, by default).
+
+The way I do this is by rigidly enforcing and checking for set variables 
+in the LaTeX files. That way, a vanilla LaTeX file might begin:
 
 So, for example, a Pandoc template might begin:
-
-```tex
-\documentclass[letter,12pt,article,oneside]{memoir}
-
-\newcommand{\mytitle}{$title$}
-\newcommand{\myauthorname}{$author.name$}
-\newcommand{\myinputstemplate}{$inputs-template$}
-
-\input{\myinputstemplate}
-```
-
-Here, `$title$`, `$author.name$`, and `$inputs-template$` refer to metadata variables. See [Pandoc’s documentation on interpolated variables](https://pandoc.org/MANUAL.html#interpolated-variables) for more.
-
-However, in vanilla LaTeX, we might have:
 
 ```tex
 \documentclass[letter,12pt,article,oneside]{memoir}
@@ -56,12 +43,25 @@ However, in vanilla LaTeX, we might have:
 \input{\myinputstemplate}
 ```
 
-The title and author’s name need to be filled in.
+The `math-homework` file is anticipating variables/commands 
+called `\mytitle` and `\myauthorname`, so it can feed them into its own
+headers, footers, and so on. 
+In Pandoc, I have an interstitial template that converts Pandoc metadata
+into LaTeX commands/variables, like this:
 
-But in both cases, there are now available `\mytitle`,  
-`\myauthorname`, 
-and `\myinputstemplate` which can be accessed by the 
-various subsequent files that are `\input`ed via the value of `\myinputstemplate`.
+```tex
+\documentclass[letter,12pt,article,oneside]{memoir}
+
+\newcommand{\mytitle}{$title$}
+\newcommand{\myauthorname}{$author.name$}
+\newcommand{\myinputstemplate}{$inputs-template$}
+
+\input{\myinputstemplate}
+```
+
+Here, `$title$`, `$author.name$`, and `$inputs-template$` refer 
+to these metadata variables. 
+See [Pandoc’s documentation on interpolated variables](https://pandoc.org/MANUAL.html#interpolated-variables) for more.
 
 ## Bibliographies
 
