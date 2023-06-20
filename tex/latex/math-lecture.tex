@@ -1,4 +1,4 @@
-t anticipates the following variables’ being set:
+%t anticipates the following variables’ being set:
 
 % \mytitle
 % \myauthorname
@@ -36,7 +36,7 @@ t anticipates the following variables’ being set:
 % PDF
 \ifundef{\mypdftitle}{
   \newcommand{\mypdftitle}{
-    \mytitle\ Notes for \mycoursename\ (\mycourseinstructor), \mydate
+    \mytitle\ Notes for \mycoursename\ (\mycourseinstructor) \mydate
   }
 }{}
 \ifundef{\mypdfauthor}{
@@ -67,4 +67,4 @@ t anticipates the following variables’ being set:
 \chapterstyle{math-lecture-chapter}
 
 \pagestyle{math-lecture-page}
-\checkandfix
+\checkandfixthelayout
