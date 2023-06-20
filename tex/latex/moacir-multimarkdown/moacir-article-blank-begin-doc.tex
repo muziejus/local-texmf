@@ -1,0 +1,53 @@
+%
+%	For setup that must follow metadata included in the document
+%
+
+\usepackage[
+  unicode=true,
+	plainpages=false,
+	pdfpagelabels,
+	pdftitle={\mytitle},
+	% pagebackref,
+	pdfauthor={\myauthor},
+	pdfkeywords={\keywords}
+	]{hyperref}
+\usepackage{memhfixc}
+
+\bibliocommand
+
+% \input{mmd-title}
+
+% \usepackage{fancyhdr}
+% \pagestyle{fancy} % for fancy headers/footers
+% \newcommand\datestyle{}
+
+% \fancyhead{}
+
+% \lfoot{}
+% \cfoot{}% of \pageref{LastPage}}     % Use \thepage for counting page number
+% \rfoot{\datestyle\datestyle\ READING COPY - DO NOT CIRCULATE Moacir P. de Sá Pereira, \today, \thepage}
+% \renewcommand{\headrulewidth}{0.0pt}
+
+\ifx\endnotes\undefined
+\else
+  \usepackage{endnotes}     % For endnotes.
+  \let\footnote=\endnote
+\fi
+
+\begin{document}
+
+% \VerbatimFootnotes
+
+\mainmatter
+
+
+% Copyright
+\setlength{\parindent}{0pt}
+
+\ifx\mycopyright\undefined
+\else
+	\textcopyright{} \mycopyright
+\fi
+
+\setlength{\parindent}{1em}
+

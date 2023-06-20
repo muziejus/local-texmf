@@ -1,0 +1,53 @@
+%
+%	Default packages for memoir documents created by MultiMarkdown
+%
+
+%\usepackage{fancyvrb}			% Allow \verbatim et al. in footnotes
+\usepackage{graphicx}			% To enable including graphics in pdf's
+\usepackage{booktabs}			% Better tables
+\usepackage{tabulary}			% Support longer table cells
+%\usepackage[utf8]{inputenc}		% For UTF-8 support
+%\usepackage[T1]{fontenc}		% Use T1 font encoding for accented characters
+\usepackage{xcolor}				% Allow for color (annotations)
+\usepackage{acronym}      % Support acronyms
+
+\usepackage{fontspec}			% Kicks in XeLaTeX
+\setmainfont{EBGaramond}[
+  Path = /Users/moacir/Library/Fonts/,
+  UprightFont = * ,
+  ItalicFont = *12-Italic ,
+  SmallCapsFont = *SC ,
+  Extension = .otf 
+  ]
+% \setromanfont[Mapping=tex-text]{EB Garamond}
+\setmonofont[Scale=0.8]{UbuntuMono-R}[
+  Path = /Users/moacir/Library/Fonts/,
+  UprightFont = * ,
+  ItalicFont = *I,
+  Extension = .ttf 
+  ]
+% [Mapping=tex-text]{Ubuntu Mono}
+
+\usepackage[notes, 
+%	isbn=false,
+%	url=false,
+% notefield=false,
+%	bookseries=false,
+	includeall=false, % takes care of the above
+	doi=true,
+	citereset=chapter,
+	maxbibnames=500, % only works in the bib and not the footcite.
+	short,
+%	minbibnames=1,
+	backend=biber]{biblatex-chicago} % Adds biblatex.
+
+\usepackage{pdflscape}			% For landscape pages in pdf mode
+%\usepackage{lscape}			% For landscape pages
+
+\usepackage{pstricks}			% For pictures I draw!
+
+\usepackage{longtable}			% For long tables
+
+\newif\ifendnotes
+
+

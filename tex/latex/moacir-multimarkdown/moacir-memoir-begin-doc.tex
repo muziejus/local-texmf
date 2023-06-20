@@ -1,0 +1,63 @@
+%
+%	Get ready for the actual document
+%
+
+\usepackage[
+  unicode=true,
+	plainpages=false,
+	pdfpagelabels,
+	pdftitle={\mytitle},
+	pagebackref,
+	pdfauthor={\myauthor},
+	pdfkeywords={\keywords}
+	]{hyperref}
+\usepackage{memhfixc}
+
+\bibliocommand
+
+\input{mmd-title}
+\title{\mytitle}
+\author{\myauthor}
+
+\ifx\mydate\undefined
+\else
+	\date{\mydate}
+\fi
+
+
+\ifx\theme\undefined
+\else
+	\usetheme{\theme}
+\fi
+
+\begin{document}
+
+%\VerbatimFootnotes		% Causes double-spaced footnotes.
+
+
+\chapterstyle{\mychapterstyle}
+\pagestyle{\mypagestyle}
+\makeevenfoot{\mypagestyle}{}{\thepage}{}
+\makeoddfoot{\mypagestyle}{}{\thepage}{}
+\makeevenhead{\mypagestyle}{}{}{}
+\makeoddhead{\mypagestyle}{}{}{}
+
+% Frontmatter
+\frontmatter
+
+%\maketitle
+\maketitle
+\clearpage
+
+\thispagestyle{empty}
+\input{mmd-memoir-copyright}
+
+\begin{KeepFromToc}
+  \tableofcontents
+\end{KeepFromToc}
+% \clearpage
+% \listoffigures
+% \clearpage
+% \listoftables
+
+\mainmatter

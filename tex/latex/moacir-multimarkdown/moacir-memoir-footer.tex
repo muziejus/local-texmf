@@ -1,0 +1,36 @@
+%
+%	MultiMarkdown default footer file
+%
+
+
+% Back Matter
+\if@mainmatter
+	we're in main
+	\backmatter
+\fi
+
+\ifx\endnotes\undefined
+  % Bibliography
+
+  %\ifx\bibliocommand\undefined
+  %\else
+  %	\bibliographystyle{\bibliostyle}
+  %	\bibliocommand
+  %\fi
+  \SingleSpacing
+  \printbibliography[prenote=acks]
+\else
+  % Endnotes
+  \newpage
+  \theendnotes
+\fi
+
+
+
+% Glossary
+\printglossaries
+
+
+% Index
+\printindex
+
