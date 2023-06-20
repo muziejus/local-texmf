@@ -2,3 +2,5 @@
 *.log
 *.out
 *.aux
+tex/latex/local
+tex/latex/mmd
