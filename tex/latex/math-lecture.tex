@@ -1,21 +1,16 @@
-% This input anticipates the following variables’ being set:
+t anticipates the following variables’ being set:
 
 % \mytitle
 % \myauthorname
-% \myauthorid
-% \myfont
 % \mycoursename
 % \mycourseinstructor
-% \myduedate
+% \mydate
 
 \ifundef{\mytitle}{
-  \newcommand{\mytitle}{Homework}
+  \newcommand{\mytitle}{Lecture}
 }{}
 \ifundef{\myauthorname}{
   \newcommand{\myauthorname}{Moacir P. de Sá Pereira}
-}{}
-\ifundef{\myauthorid}{
-  \newcommand{\myauthorid}{mpd2149}
 }{}
 \ifundef{\mycoursename}{
   \newcommand{\mycoursename}{Course Name}
@@ -23,8 +18,8 @@
 \ifundef{\mycourseinstructor}{
   \newcommand{\mycourseinstructor}{Course Instructor}
 }{}
-\ifundef{\myduedate}{
-  \newcommand{\myduedate}{\today}
+\ifundef{\mydate}{
+  \newcommand{\mydate}{\today}
 }{}
 
 
@@ -41,7 +36,7 @@
 % PDF
 \ifundef{\mypdftitle}{
   \newcommand{\mypdftitle}{
-    \mytitle for \mycoursename
+    \mytitle\ Notes for \mycoursename\ (\mycourseinstructor), \mydate
   }
 }{}
 \ifundef{\mypdfauthor}{
@@ -51,38 +46,25 @@
 
 % Header and Footer
 \setlength{\headheight}{14.5pt}
-\copypagestyle{math-homework-page}{plain}
-\makeoddfoot{math-homework-page}{}{}{%
-  \myauthorname\ - \mytitle\ (due: \myduedate) - p. \thepage
+\copypagestyle{math-lecture-page}{plain}
+\makeoddfoot{math-lecture-page}{}{}{%
+  \mytitle\ (\mydate) notes for \mycoursename\ - p. \thepage
 }
 
 % Chapter styles
-\makechapterstyle{math-homework-chapter}{%
+\makechapterstyle{math-lecture-chapter}{%
   \setlength{\beforechapskip}{0pt}
   \setlength{\afterchapskip}{0pt}
-  \renewcommand*{\chaptitlefont}{}
+  \renewcommand*{\chaptitlefont}{\Large}
   \renewcommand*{\printchaptertitle}[1]{%
     \chaptitlefont 
-    \myauthorname\ (\texttt{\myauthorid})\\
     ##1 \\
-    \mycoursename\ - \mycourseinstructor\\
-    \myduedate
     \smallskip\hrule\vskip\onelineskip  
   }
   \setsecheadstyle{\Large\scshape}
   \setsubsecheadstyle{\large\scshape}
 }
-\chapterstyle{math-homework-chapter}
+\chapterstyle{math-lecture-chapter}
 
-\let\oldsection\section
-\renewcommand{\section}[1]{%
-  \oldsection*{Problem #1:}
-}
-
-\let\oldsubsection\subsection
-\renewcommand{\subsection}[1]{%
-  \oldsubsection{\(\blacklozenge\quad\) #1:}
-}
-
-\pagestyle{math-homework-page}
-\checkandfixthelayout
+\pagestyle{math-lecture-page}
+\checkandfix
