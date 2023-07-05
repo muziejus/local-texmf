@@ -1,0 +1,71 @@
+%t anticipates the following variables’ being set:
+
+% \mytitle
+% \myauthorname
+% \myauthorid
+% \mycoursename
+% \mycourseinstructor
+% \mydate
+
+\ifundef{\mytitle}{
+  \newcommand{\mytitle}{Lecture}
+}{}
+\ifundef{\myauthorname}{
+  \newcommand{\myauthorname}{Moacir P. de Sá Pereira}
+}{}
+\ifundef{\mycoursename}{
+  \newcommand{\mycoursename}{Course Name}
+}{}
+\ifundef{\mycourseinstructor}{
+  \newcommand{\mycourseinstructor}{Course Instructor}
+}{}
+\ifundef{\mydate}{
+  \newcommand{\mydate}{\today}
+}{}
+
+
+% Package sets
+\input{package-sets/default}
+\input{package-sets/computer-science}
+
+% Fonts
+\input{fonts/default}
+
+% Layout
+\input{layouts/default}
+
+% PDF
+\ifundef{\mypdftitle}{
+  \newcommand{\mypdftitle}{
+    \mytitle\ Notes for \mycoursename\ (\mycourseinstructor) \mydate
+  }
+}{}
+\ifundef{\mypdfauthor}{
+    \newcommand{\mypdfauthor}{\myauthorname}
+}{}
+\input{outputs/pdf}
+
+% Header and Footer
+\setlength{\headheight}{14.5pt}
+\copypagestyle{cs-lecture-page}{plain}
+\makeoddfoot{cs-lecture-page}{}{}{%
+  \mytitle\ (\mydate) notes for \mycoursename\ - p. \thepage
+}
+
+% Chapter styles
+\makechapterstyle{cs-lecture-chapter}{%
+  \setlength{\beforechapskip}{0pt}
+  \setlength{\afterchapskip}{0pt}
+  \renewcommand*{\chaptitlefont}{\Large}
+  \renewcommand*{\printchaptertitle}[1]{%
+    \chaptitlefont 
+    ##1 \\
+    \smallskip\hrule\vskip\onelineskip  
+  }
+  \setsecheadstyle{\Large\scshape}
+  \setsubsecheadstyle{\large\scshape}
+}
+\chapterstyle{cs-lecture-chapter}
+
+\pagestyle{cs-lecture-page}
+\checkandfixthelayout
