@@ -2,6 +2,10 @@
   \newcommand{\myfont}{Latin Modern Roman}
 }
 
+\ifundef{\mymonofont}{
+  \newcommand{\mymonofont}{Ubuntu Mono}
+}
+
 \usepackage{mathspec}
   \IfFontExistsTF{\myfont}{%
     \setmainfont{\myfont}[%
@@ -9,5 +13,8 @@
     ]
     \setmathrm{\myfont}
     \setmathfont(Digits,Latin){\myfont}
+  }{}
+  \IfFontExistsTF{\mymonofont}{%
+    \setmonofont[Scale=0.8]{\mymonofont}
   }{}
 
