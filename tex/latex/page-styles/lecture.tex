@@ -1,0 +1,31 @@
+% 
+% Anticipates:
+%
+% \myauthorname
+% \myauthorid
+% \mytitle
+% \mycoursename
+% \mycourseinstructor
+% \myduedate
+%
+
+% Header and Footer
+\setlength{\headheight}{14.5pt}
+\copypagestyle{lecture}{plain}
+\makeoddfoot{lecture}{}{}{%
+  \mytitle\ (\mydate) notes for \mycoursename\ - p. \thepage
+}
+
+% Chapter styles
+\makechapterstyle{lecturechapter}{%
+  \setlength{\beforechapskip}{0pt}
+  \setlength{\afterchapskip}{0pt}
+  \renewcommand*{\chaptitlefont}{\Large}
+  \renewcommand*{\printchaptertitle}[1]{%
+    \chaptitlefont 
+    ##1 \\
+    \smallskip\hrule\vskip\onelineskip  
+  }
+  \setsecheadstyle{\Large\scshape}
+  \setsubsecheadstyle{\large\scshape}
+}
