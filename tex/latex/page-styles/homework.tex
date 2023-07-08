@@ -1,0 +1,52 @@
+% 
+% Anticipates:
+%
+% \myauthorname
+% \myauthorid
+% \mytitle
+% \mycoursename
+% \mycourseinstructor
+% \myduedate
+%
+
+\copypagestyle{homework}{plain}
+
+\makeoddfoot{homework}{}{}{%
+  \myauthorname\ - \mytitle\ (due: \myduedate) - p. \thepage
+}
+
+\newcommand{\homeworkheader}{%
+\noindent\myauthorname\ (\texttt{\myauthorid}) \\
+\mytitle\\
+\mycoursename\ - \mycourseinstructor\\
+\myduedate
+\smallskip\hrule\vskip\onelineskip  
+}
+
+% Chapter style
+\makechapterstyle{homeworkchapter}{%
+  \setlength{\beforechapskip}{0pt}
+  \setlength{\afterchapskip}{20pt}
+  \renewcommand*{\chapnumfont}{\chaptitlefont}
+  \renewcommand*{\chaptitlefont}{\normalfont\Huge}
+  \renewcommand*{\printchaptername}{}
+  \renewcommand*{\printchaptername}{}
+  \renewcommand*{\afterchapternum}{\space}
+  \renewcommand*{\printchaptertitle}[1]{\chaptitlefont \textsc{#1}}
+  \setsecheadstyle{\Large\scshape}
+}
+
+\let\oldchapter\chapter
+\renewcommand{\chapter}[1]{%
+  \ifnumgreater{\value{chapter}}{0}{
+    \newpage \oldchapter{#1}
+  }{
+    \oldchapter{#1}
+  }
+}
+
+\let\oldsection\section
+\renewcommand{\section}[1]{%
+  \oldsection*{\(\blacklozenge\)\space #1}
+}
+
