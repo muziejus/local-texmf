@@ -22,7 +22,12 @@
 \ifundef{\mydate}{
   \newcommand{\mydate}{\today}
 }{}
-
+\ifundef{\mymonofont}{
+  \newcommand{\mymonofont}{mononoki Nerd Font}
+}{}
+\ifundef{\mymathfont}{
+  \newcommand{\mymathfont}{Neo Euler}
+}{}
 
 % Package sets
 \input{package-sets/default}
