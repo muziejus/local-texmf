@@ -32,9 +32,10 @@
   \renewcommand*{\printchaptername}{}
   \renewcommand*{\printchaptername}{}
   \renewcommand*{\afterchapternum}{\space}
-  \renewcommand*{\printchaptertitle}[1]{\chaptitlefont \textsc{#1}}
-  \setsecheadstyle{\Large\scshape}
-}
+  \renewcommand*{\printchaptertitle}{\chaptitlefont \textsc}
+}%end of homeworkchapter
+
+\setsecheadstyle{\Large\scshape}
 
 \let\oldchapter\chapter
 \renewcommand{\chapter}[1]{%
