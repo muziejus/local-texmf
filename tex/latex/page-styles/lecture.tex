@@ -23,9 +23,11 @@
   \renewcommand*{\chaptitlefont}{\Large}
   \renewcommand*{\printchaptertitle}{%
     \chaptitlefont 
-    #1 \\
+  }
+  \renewcommand*{\afterchaptertitle}{
     \smallskip\hrule\vskip\onelineskip  
   }
-  \setsecheadstyle{\Large\scshape}
-  \setsubsecheadstyle{\large\scshape}
 }
+
+\setsecheadstyle{\Large\scshape}
+\setsubsecheadstyle{\large\scshape}
