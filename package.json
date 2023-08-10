@@ -1,0 +1,18 @@
+{
+  "name": "local-texmf",
+  "version": "0.0.1",
+  "private": true,
+  "repository": "https://github.com/muziejus/local-texmf.git",
+  "description": "A modular local texmf, organized with Pandoc metadata in mind",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Moacir P. de Sá Pereira <github@moacir.moacir.com> (http://moacir.com)",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0"
+  }
+}

@@ -1,0 +1,28 @@
+\usepackage{tikz, pgfplots}
+
+\usetikzlibrary{
+  shapes.multipart,
+  arrows.meta, % arrow styling
+  chains, % nodes on chains
+  positioning,
+  quotes, % quoted text on edges? 
+}
+
+
+\tikzset{
+  n/.style={circle, draw},
+  s/.style={arrows={-Stealth[length=3mm]}},
+  array/.style={
+    rectangle split, rectangle split parts=#1, 
+    draw, anchor=center, rectangle split horizontal
+  },
+}
+
+\usepackage{forest}
+
+\forestset{
+  default preamble={%
+    for tree={circle, draw, math content}
+  },
+}
+

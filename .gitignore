@@ -4,3 +4,4 @@
 *.aux
 tex/latex/local
 tex/latex/mmd
+node_modules
