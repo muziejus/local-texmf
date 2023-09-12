@@ -1,9 +1,20 @@
-\theoremstyle{theorem}
+\theoremstyle{plain}
 \newtheorem*{theorem}{Theorem}
-
-\theoremstyle{definition}
-\newtheorem*{definition}{Definition}
 
 \theoremstyle{remark}
 \newtheorem*{note}{Note}
 
+\newtheoremstyle{def}%
+  {3pt}% space above
+  {3pt}% space below
+  {}% body font
+  {}% indent amount
+  {\itshape}% Theorem head font
+  {:}% Punctuation after theorem head
+  {2.5em}% Space after theorem head
+  {}% Theorem head spec.
+
+\theoremstyle{def}
+\newtheorem*{definition}{Definition}
+
+\renewcommand\qedsymbol{$\blacksquare$}
