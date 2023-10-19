@@ -1,0 +1,51 @@
+% Header and Footer
+\setlength{\headheight}{14.5pt}
+\copypagestyle{cheatsheet}{plain}
+\makeoddhead{cheatsheet}{}{}{%
+  \myauthorname\ - \mytitle\ (\mydate)
+}
+\makeoddfoot{cheatsheet}{}{}{}
+
+% Chapter styles
+\makechapterstyle{cheatsheetchapter}{%
+  \setlength{\beforechapskip}{0pt}
+  \setlength{\afterchapskip}{0pt}
+  \renewcommand*{\chaptitlefont}{\Large}
+  \renewcommand*{\printchaptertitle}{%
+    \chaptitlefont 
+  }
+  \renewcommand*{\afterchaptertitle}{
+    \smallskip\hrule\vskip\onelineskip  
+  }
+}
+
+\setsecheadstyle{\Large\scshape}
+\setsubsecheadstyle{\large\scshape}
+
+% Compact itemize
+% \setlist{nosep}
+
+% % Compact sections
+% \usepackage[compact]{titlesec}
+% \titlespacing{\section}{0pt}{*0}{*0}
+% \titlespacing{\subsection}{0pt}{*0}{*0}
+% \titlespacing{\subsubsection}{0pt}{*0}{*0}
+
+% Reduce line spacing
+\renewcommand{\baselinestretch}{0.8}
+
+% Color scheme
+\definecolor{lightblue}{rgb}{0.75,0.85,1}
+
+% New command for creating boxes with black text
+% \newcommand{\mybox}[2]{
+%     \begin{tcolorbox}[colback=lightblue!5!white,colframe=lightblue!75!black,boxsep=1pt,arc=0pt,outer arc=0pt,title={\textcolor{white}{#1}}]
+%         \textcolor{black}{#2}
+%     \end{tcolorbox}
+% }
+
+\newtcolorbox{mybox}[1]{colback=lightblue!5!white,
+colframe=lightblue!75!black,fonttitle=\bfseries,
+title={#1}}
+
+
