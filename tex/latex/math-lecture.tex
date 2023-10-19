@@ -55,26 +55,12 @@
 \input{outputs/pdf}
 
 % Header and Footer
-\setlength{\headheight}{14.5pt}
-\copypagestyle{math-lecture-page}{plain}
-\makeoddfoot{math-lecture-page}{}{}{%
-  \mytitle\ (\mydate) notes for \mycoursename\ - p. \thepage
-}
+\input{page-styles/lecture}
 
-% Chapter styles
-\makechapterstyle{math-lecture-chapter}{%
-  \setlength{\beforechapskip}{0pt}
-  \setlength{\afterchapskip}{0pt}
-  \renewcommand*{\chaptitlefont}{\Large}
-  \renewcommand*{\printchaptertitle}[1]{%
-    \chaptitlefont 
-    ##1 \\
-    \smallskip\hrule\vskip\onelineskip  
-  }
-  \setsecheadstyle{\Large\scshape}
-  \setsubsecheadstyle{\large\scshape}
-}
-\chapterstyle{math-lecture-chapter}
+% <acros
+\input{macros/math}
+\input{macros/theorems}
 
-\pagestyle{math-lecture-page}
+\chapterstyle{lecturechapter}
+\pagestyle{lecture}
 \checkandfixthelayout
