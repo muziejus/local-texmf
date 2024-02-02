@@ -10,17 +10,19 @@
   \newcommand{\mymonofont}{Ubuntu Mono}
 }
 
-\usepackage{mathspec}
+\usepackage[math-style=upright]{unicode-math}
+
+\usepackage{fontspec}
   \IfFontExistsTF{\myfont}{%
     \setmainfont{\myfont}[%
       Mapping=tex-text ,
     ]
   }{}
-  \IfFontExistsTF{\mymathfont}{%
+%   \IfFontExistsTF{\mymathfont}{%
     \setmathrm{\myfont}
-    \setmathfont(Digits,Latin,Greek){\mymathfont}
-  }{}
+    \setmathfont{Euler Math}
+%     \setmathfont(Digits,Latin,Greek){\mymathfont}
+%   }{}
   \IfFontExistsTF{\mymonofont}{%
     \setmonofont[Scale=0.8]{\mymonofont}
   }{}
-
