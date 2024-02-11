@@ -33,6 +33,33 @@
 \input{package-sets/computer-science}
 \input{package-sets/graphics}
 
+% Bibliography
+\ifdef{\mybibliography}{
+  \usepackage[
+    backend=biber, 
+    style=ieee,
+    % doi=false,
+    % isbn=false,
+    % url=false,
+    % series=false,
+    % eprint=false
+  ]{biblatex}
+  \addbibresource{\mybibliography}
+  \DeclareSourcemap{
+    \maps[datatype=bibtex]{
+      \map{
+        \step[fieldset=issn, null]
+        \step[fieldset=isbn, null]
+        \step[fieldset=abstract, null]
+        \step[fieldset=series, null]
+        \step[fieldset=urldate, null]
+        \step[fieldset=url, null]
+        \step[fieldset=pagetotal, null]
+      }
+    }
+  }
+}
+
 % Fonts
 \input{fonts/math}
 
