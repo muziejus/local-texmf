@@ -1,3 +1,10 @@
+\newcommand{\colvec}[1]{%
+  \renewcommand*{\do}[1]{##1 \\}
+  \begin{bmatrix*}[r]
+    \docsvlist{#1}
+  \end{bmatrix*}
+}% end \colvec
+
 \newcommand\R{\mathbb{R}}
 % \newcommand\Rn{\mathbb{R}^{n}}
 \newcommand\Rm{\mathbb{R}^{m}}

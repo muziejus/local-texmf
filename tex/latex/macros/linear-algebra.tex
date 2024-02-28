@@ -4,13 +4,6 @@
   \end{bmatrix*}
 }% end \mymat
 
-\newcommand{\colvec}[1]{%
-  \renewcommand*{\do}[1]{##1 \\}
-  \begin{bmatrix}[r]
-    \docsvlist{#1}
-  \end{bmatrix}
-}% end \colvec
-
 \NewDocumentCommand{\colvecn}{ O{x} O{3} }{%
   \begin{bmatrix}
    \iteratevecn{#1}{#2}
