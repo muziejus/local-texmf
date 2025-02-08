@@ -1,3 +1,8 @@
+\newcommand{\diff}{\ensuremath{\operatorname{d}\!}}
+
+
+\newcommand{\dv}[1]{\ensuremath{\frac{\operatorname{d}}{\operatorname{d}#1}}\!}
+
 \newcommand{\colvec}[1]{%
   \renewcommand*{\do}[1]{##1 \\}
   \begin{bmatrix*}[r]
@@ -16,17 +21,25 @@
 \newcommand\where{\text{where}\;}
 \newcommand\andd{\text{and}\;}
 
+% Distributions
+\DeclareMathOperator{\Uniform}{Uniform}
+\DeclareMathOperator{\Normal}{\mathcal{N}}
+\DeclareMathOperator{\Poisson}{Poisson}
+\DeclareMathOperator{\Binom}{Binom}
+\DeclareMathOperator{\Bernoulli}{Bernoulli}
+\DeclareMathOperator{\BBeta}{Beta}
+
+% Stat functions
+\DeclareMathOperator*{\ERR}{ERR}
+
 \DeclareMathOperator{\MSE}{MSE}
 \DeclareMathOperator{\SE}{SE}
 \DeclareMathOperator{\Bias}{Bias}
 \DeclareMathOperator{\Var}{Var}
 \DeclareMathOperator{\Corr}{Corr}
 \DeclareMathOperator{\Cov}{Cov}
-\DeclareMathOperator{\Bin}{Bin}
-\DeclareMathOperator{\nnull}{null}
-\DeclareMathOperator{\col}{col}
-\DeclareMathOperator{\spann}{span}
-\DeclareMathOperator{\odds}{odds}
+
+% ML functions
 \DeclareMathOperator{\logit}{logit}
 \DeclareMathOperator{\relu}{relu}
 \DeclareMathOperator{\score}{score}
@@ -34,10 +47,14 @@
 \DeclareMathOperator{\softmax}{softmax}
 \DeclareMathOperator{\sigmoid}{sigmoid}
 
-\DeclareMathOperator*{\ERR}{ERR}
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 \DeclareMathOperator*{\sign}{sign}
+\DeclareMathOperator{\Bin}{Bin}
+\DeclareMathOperator{\nnull}{null}
+\DeclareMathOperator{\col}{col}
+\DeclareMathOperator{\spann}{span}
+\DeclareMathOperator{\odds}{odds}
 
 \DeclareMathOperator*{\Count}{Count}
 
